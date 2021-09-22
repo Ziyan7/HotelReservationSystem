@@ -1,19 +1,35 @@
 package userRegistration.HotelReservationWorskshop;
 
-//
+//Class containing name and different payment
 public class Hotels {
-	public String name;
-	public Double WeekDayRegularRate;
-	public Double WeekDayRewardRate;
-	public Double WeekendRegularRate;
-	public Double WeekendRewardRate;
-	public Hotels(String name,double WeekDayRegularRate,double WeekDayRewardRate,double WeekendRegularRate,double WeekendRewardRate) {
+	private String name;
+	private Integer WeekDayRegularRate;
+	private Integer WeekendRegularRate;
+	public Hotels(String name,Integer WeekDayRegularRate) {
 		this.name= name;
 		this.WeekDayRegularRate = WeekDayRegularRate;
-		this.WeekDayRewardRate = WeekDayRewardRate;
-		this.WeekendRegularRate = WeekendRegularRate;
-		this.WeekendRewardRate = WeekendRewardRate;
 	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getWeekDayRegularRate() {
+		return WeekDayRegularRate;
+	}
+
+	public void setWeekDayRegularRate(Integer weekDayRegularRate) {
+		WeekDayRegularRate = weekDayRegularRate;
+	}
+	
+	@Override
+	public String toString() {
+		return name + WeekDayRegularRate;
+	}
+
 	
 	
 }
