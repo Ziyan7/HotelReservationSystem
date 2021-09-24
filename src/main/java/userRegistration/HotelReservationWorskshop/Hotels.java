@@ -4,10 +4,11 @@ package userRegistration.HotelReservationWorskshop;
 public class Hotels {
 	private String name;
 	private Integer WeekDayRegularRate;
-	private Integer WeekendRegularRate;
-	public Hotels(String name,Integer WeekDayRegularRate) {
+	private Integer WeekEndRegularRate;
+	public Hotels(String name,Integer WeekDayRegularRate, Integer WeekEndRegularRate) {
 		this.name= name;
 		this.WeekDayRegularRate = WeekDayRegularRate;
+		this.setWeekEndRegularRate(WeekEndRegularRate);
 	}
 	public String getName() {
 		return name;
@@ -24,11 +25,14 @@ public class Hotels {
 	public void setWeekDayRegularRate(Integer weekDayRegularRate) {
 		WeekDayRegularRate = weekDayRegularRate;
 	}
-	
-	@Override
-	public String toString() {
-		return name + WeekDayRegularRate;
+	public Integer getWeekEndRegularRate() {
+		return WeekEndRegularRate;
 	}
+	public void setWeekEndRegularRate(Integer weekEndRegularRate) {
+		WeekEndRegularRate = weekEndRegularRate;
+	}
+	
+	
 
 	
 	

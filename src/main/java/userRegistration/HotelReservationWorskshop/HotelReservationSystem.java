@@ -1,5 +1,4 @@
 package userRegistration.HotelReservationWorskshop;
-import java.text.ParseException;
 
 import java.util.*;
 import java.time.LocalDate;
@@ -17,33 +16,30 @@ public class HotelReservationSystem {
 	Map<String, Integer> map = new HashMap<>();
 
 	// method to add hotel
-	public Boolean listHotel(String name, Integer WeekDayRegularRate) {
-		hotelReservation.add(new Hotels(name, WeekDayRegularRate));
+	public Boolean listHotel(String name,Integer WeekDayRegularRate,Integer WeekEndRegularRate) {
+		hotelReservation.add(new Hotels(name, WeekDayRegularRate,WeekEndRegularRate));
 		return true;
-	}
-	public int hotelCount() {
-		return hotelReservation.size();
 	}
 
 	public String cheapHotelForRegularCustomer(String rangeStart, String rangeEnd) {
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMMyyyy"); // inbuilt function for converting into
-																				// dates with given pattern
+		// inbuilt function for converting into dates with given pattern
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMMyyyy");														
 		LocalDate startDate = LocalDate.parse(rangeStart, format);
 		LocalDate endDate = LocalDate.parse(rangeEnd, format);
 		int numOfDays = Period.between(startDate, endDate).getDays(); // inbuilt function to count number of range
 
 		
 		int min = Integer.MAX_VALUE;
-		String cheapestHotel = null;
+		String cheapestHotel = null; 
 		
 		for (Hotels perHotel : hotelReservation) {
-			int totalRate = 0;
+			int totalRate = 0; //variable for total rates of hotel for given range of dates
 			for (int i = 0; i < numOfDays; i++) {
 				totalRate += perHotel.getWeekDayRegularRate();
 			}
 			map.put(perHotel.getName(), totalRate);
 		}
-		for (Map.Entry permap : map.entrySet()) {
+		for (Map.Entry permap : map.entrySet()) { //checking for the hotel with minimum weekday regular rate
 			if (min > (int) permap.getValue()) {
 				min = (int) permap.getValue();
 				cheapestHotel = (String) permap.getKey();

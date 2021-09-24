@@ -11,11 +11,9 @@ public class HotelReservationSystemTest {
 
 	@Before
 	public void HotelAdded() {
-		assertTrue(hotelreservation.listHotel("Lakewood", 110));
-		assertTrue(hotelreservation.listHotel("BridgeWood", 160));
-		assertTrue(hotelreservation.listHotel("RidgeWood", 220));
-		int hotelCount = hotelreservation.hotelCount();
-		assertEquals(3,hotelCount);
+		assertTrue(hotelreservation.listHotel("Lakewood", 110,90));
+		assertTrue(hotelreservation.listHotel("BridgeWood", 160,50));
+		assertTrue(hotelreservation.listHotel("RidgeWood", 220,150));
 	}
 
 	@Test
