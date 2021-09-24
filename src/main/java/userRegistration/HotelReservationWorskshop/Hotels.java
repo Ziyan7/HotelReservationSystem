@@ -8,7 +8,7 @@ public class Hotels {
 	public Hotels(String name,Integer WeekDayRegularRate, Integer WeekEndRegularRate) {
 		this.name= name;
 		this.WeekDayRegularRate = WeekDayRegularRate;
-		this.setWeekEndRegularRate(WeekEndRegularRate);
+		this.WeekEndRegularRate = WeekEndRegularRate;
 	}
 	public String getName() {
 		return name;
