@@ -27,8 +27,8 @@ public class HotelReservationSystem {
 	}
 
 	// method to add hotel
-	public Boolean listHotel(String name, Integer WeekDayRegularRate, Integer WeekEndRegularRate , Integer Ratings) {
-		hotelReservation.add(new Hotels(name, WeekDayRegularRate, WeekEndRegularRate, Ratings));
+	public Boolean listHotel(String name, Integer WeekDayRegularRate, Integer WeekEndRegularRate ,  Integer WeekDayRewardRate, Integer WeekEndRewardRate, Integer Ratings) {
+		hotelReservation.add(new Hotels(name, WeekDayRegularRate, WeekEndRegularRate, WeekDayRewardRate, WeekEndRewardRate, Ratings));
 		return true;
 	}
 

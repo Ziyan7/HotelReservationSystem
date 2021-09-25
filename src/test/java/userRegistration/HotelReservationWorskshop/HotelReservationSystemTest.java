@@ -11,11 +11,10 @@ public class HotelReservationSystemTest {
 
 	@Before
 	public void HotelAdded() {
-		assertTrue(hotelreservation.listHotel("Lakewood", 110,90,3));
-		assertTrue(hotelreservation.listHotel("BridgeWood", 150,50,4));
-		assertTrue(hotelreservation.listHotel("RidgeWood", 220,150,5));
-		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("11Sep2020", "12Sep2020");
-		assertEquals("BridgeWood with Totalrate = 200", cheapHotel);
+		assertTrue(hotelreservation.listHotel("Lakewood", 110,90,80,80,3));
+		assertTrue(hotelreservation.listHotel("BridgeWood", 150,50,110,50,4));
+		assertTrue(hotelreservation.listHotel("RidgeWood", 220,150,100,40,5));
+		
 	}
 
 	@Test

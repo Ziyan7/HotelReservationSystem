@@ -5,8 +5,10 @@ public class Hotels {
 	private String name;
 	private Integer WeekDayRegularRate;
 	private Integer WeekEndRegularRate;
+	private Integer WeekDayRewardRate;
+	private Integer WeekEndRewardRate;
 	private Integer Ratings;
-	public Hotels(String name,Integer WeekDayRegularRate, Integer WeekEndRegularRate, Integer Ratings) {
+	public Hotels(String name,Integer WeekDayRegularRate, Integer WeekEndRegularRate, Integer WeekDayRewardRate, Integer WeekEndRewardRate, Integer Ratings) {
 		this.name= name;
 		this.WeekDayRegularRate = WeekDayRegularRate;
 		this.WeekEndRegularRate = WeekEndRegularRate;
@@ -38,6 +40,18 @@ public class Hotels {
 	}
 	public void setRatings(Integer ratings) {
 		Ratings = ratings;
+	}
+	public Integer getWeekDayRewardRate() {
+		return WeekDayRewardRate;
+	}
+	public void setWeekDayRewardRate(Integer weekDayRewardRate) {
+		WeekDayRewardRate = weekDayRewardRate;
+	}
+	public Integer getWeekEndRewardRate() {
+		return WeekEndRewardRate;
+	}
+	public void setWeekEndRewardRate(Integer weekEndRewardRate) {
+		WeekEndRewardRate = weekEndRewardRate;
 	}
 	
 	
