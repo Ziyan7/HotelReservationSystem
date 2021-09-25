@@ -14,11 +14,15 @@ public class HotelReservationSystemTest {
 		assertTrue(hotelreservation.listHotel("Lakewood", 110,90,3));
 		assertTrue(hotelreservation.listHotel("BridgeWood", 150,50,4));
 		assertTrue(hotelreservation.listHotel("RidgeWood", 220,150,5));
+		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("11Sep2020", "12Sep2020");
+		assertEquals("BridgeWood with Totalrate = 200", cheapHotel);
 	}
 
 	@Test
 	public void checkCheapHoteForRegalurCustomer() {
 		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("11Sep2020", "12Sep2020");
-		assertEquals("BridgeWood", cheapHotel);
+		assertEquals("BridgeWood with Totalrate = 200", cheapHotel);
+		String BestRate = hotelreservation.BestRatedHotelForRegularCustomer();
+		assertEquals("RidgeWood with Totalrate = 370", BestRate);
 	}
 }
