@@ -19,6 +19,6 @@ public class HotelReservationSystemTest {
 	@Test
 	public void checkCheapHoteForRegalurCustomer() {
 		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("11Sep2020", "12Sep2020");
-		assertEquals("Lakewood and BridgeWood", cheapHotel);
+		assertEquals("BridgeWood", cheapHotel);
 	}
 }

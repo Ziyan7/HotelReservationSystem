@@ -10,6 +10,7 @@ public class Hotels {
 		this.name= name;
 		this.WeekDayRegularRate = WeekDayRegularRate;
 		this.WeekEndRegularRate = WeekEndRegularRate;
+		this.Ratings = Ratings;
 	}
 	public String getName() {
 		return name;
