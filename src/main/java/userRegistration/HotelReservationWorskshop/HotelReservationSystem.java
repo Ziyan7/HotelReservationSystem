@@ -2,6 +2,7 @@ package userRegistration.HotelReservationWorskshop;
 
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.time.LocalDate;
 import java.time.Period;
@@ -44,18 +45,44 @@ public class HotelReservationSystem {
 			return false;
 		}
 	}
+	//method to validate the customer type
+	public boolean validateCustomerType(String custType)throws HotelReservationException
+	{
+		String pattern = "^(Regular||Reward)$";
+		boolean result = Pattern.matches(pattern, custType);
+		if(result == true) {
+			return true;
+		}else {
+			throw new HotelReservationException(HotelReservationException.ExceptionType.WRONG_CUSTOMER, "Please enter a valid customer Type");
+		}
+	}
 
-	public String cheapHotelForRegularCustomer(String customerType,String rangeStart, String rangeEnd) {
-		// inbuilt function for converting into dates with given pattern
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMMyyyy");
-		LocalDate startDate = LocalDate.parse(rangeStart, format);
-		LocalDate endDate = LocalDate.parse(rangeEnd, format);
-		int numOfDays = Period.between(startDate, endDate).getDays() + 1; // inbuilt function to count number of range
+	public String cheapHotelForRegularCustomer(String customerType,String rangeStart, String rangeEnd) throws HotelReservationException {
+		int numOfDays = 0;
 		int min = Integer.MAX_VALUE;
 		String cheapestHotel1 = null;
 		String cheapestHotel2 = null;
 		Integer cheapHotelRate1 = 0;
 		Integer cheapHotelRate2 = 0;
+		LocalDate startDate = null;
+		LocalDate endDate = null;
+		
+		validateCustomerType(customerType); //call function to validate customer type
+		// inbuilt function for converting into dates with given pattern
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMMyyyy");
+		
+		try {
+			startDate = LocalDate.parse(rangeStart, format);
+			endDate = LocalDate.parse(rangeEnd, format);
+			numOfDays = Period.between(startDate, endDate).getDays()+1; // inbuilt function to count number of range
+			if(numOfDays == 0) {
+				throw new HotelReservationException(HotelReservationException.ExceptionType.WRONG_DATE, "Please enter proper date range");
+			}
+		}catch(Exception e) {
+			throw new HotelReservationException(HotelReservationException.ExceptionType.WRONG_DATE, "Please enter proper date range");
+		}
+		
+		
 
 		List<LocalDate> listOfDates = Stream.iterate(startDate, date -> date.plusDays(1)) // to obtain dates between
 																							// starDate and endDate

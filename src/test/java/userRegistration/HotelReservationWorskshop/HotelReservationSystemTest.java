@@ -19,15 +19,29 @@ public class HotelReservationSystemTest {
 
 	@Test
 	public void checkCheapHoteForRegalurCustomer() {
-		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("Regular","11Sep2020", "12Sep2020");
-		assertEquals("BridgeWood with Totalrate = 200", cheapHotel);
+		String cheapHotel;
+		try {
+			cheapHotel = hotelreservation.cheapHotelForRegularCustomer("Regular","11Sep2020", "12Sep2020");
+			assertEquals("BridgeWood with Totalrate = 200", cheapHotel);
+		} catch (HotelReservationException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
 		String BestRate = hotelreservation.BestRatedHotelForRegularCustomer();
 		assertEquals("RidgeWood with Totalrate = 370", BestRate);
 	}
+	
 	@Test
 	public void checkCheapestHotelWhenGivenDateRangeForRewardCustomer() 
 	{
-		String cheapHotel = hotelreservation.cheapHotelForRegularCustomer("Reward","11Sep2020","12Sep2020");
-		assertEquals("RidgeWood with Totalrate = 140",cheapHotel);
+		String cheapHotel;
+		try {
+			cheapHotel = hotelreservation.cheapHotelForRegularCustomer("Reward","11Sep2020","12Sep2020");
+			assertEquals("RidgeWood with Totalrate = 140",cheapHotel);
+		} catch (HotelReservationException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
 	}
 }
